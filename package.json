@@ -1,0 +1,46 @@
+{
+  "name": "@thewhodidthis/lsys",
+  "version": "0.0.0",
+  "description": "Helps produce L-system strings",
+  "main": "index",
+  "module": "index.mjs",
+  "homepage": "https://github.com/thewhodidthis/lsys#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewhodidthis/lsys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thewhodidthis/lsys/issues"
+  },
+  "scripts": {
+    "pretest": "eslint test.js",
+    "test": "node test.js",
+    "prestart": "eslint index.mjs",
+    "start": "rollup -f cjs index.mjs | buble > index.js",
+    "preexample": "eslint example/index.es",
+    "example": "cd example; rollup -c node:x -f iife index.es | buble | grep -v '^//' | uniq > index.js"
+  },
+  "eslintConfig": {
+    "extends": "@thewhodidthis"
+  },
+  "engines": {
+    "node": ">=6.4.0",
+    "npm": ">=3.11.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/eslint-config": "latest",
+    "@thewhodidthis/taxi": "github:thewhodidthis/taxi",
+    "buble": "latest",
+    "eslint": "latest",
+    "rollup": "latest",
+    "rollup-config-x": "latest",
+    "tapeless": "latest"
+  },
+  "keywords": [
+    "pixels",
+    "canvas"
+  ],
+  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
+  "license": "Unlicense"
+}
