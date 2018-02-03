@@ -16,9 +16,9 @@
     "pretest": "eslint test.js",
     "test": "node test.js",
     "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs index.mjs | buble > index.js",
+    "start": "rollup -f cjs index.mjs > index.js",
     "preexample": "eslint example/index.es",
-    "example": "cd example; rollup -c node:x -f iife index.es | buble | grep -v '^//' | uniq > index.js"
+    "example": "cd example; rollup -c node:x -f iife index.es | grep -v '^//' | uniq > index.js"
   },
   "eslintConfig": {
     "extends": "@thewhodidthis"
@@ -31,7 +31,6 @@
   "devDependencies": {
     "@thewhodidthis/eslint-config": "latest",
     "@thewhodidthis/taxi": "github:thewhodidthis/taxi",
-    "buble": "latest",
     "eslint": "latest",
     "rollup": "latest",
     "rollup-config-x": "latest",
