@@ -1,4 +1,4 @@
-> Teeny tiny L-system calculator
+> Dead simple L-system calculator
 
 ### Setup
 ```sh
