@@ -1,17 +1,25 @@
 'use strict';
 
-var lsys = function (rules, axiom) {
-  if ( rules === void 0 ) rules = new Map();
-  if ( axiom === void 0 ) axiom = '';
+const lsys = (rules = new Map(), axiom = '') => {
+  const keys = [];
 
-  var next = '';
+  for (const k of rules.keys()) {
+    keys.push(k);
+  }
 
-  return function () {
-    next = next.length ? next.split('').map(function (v) { return rules.get(v) || v; }).join('') : axiom;
+  const match = RegExp(keys.join('|'), 'g');
+  const plant = k => rules.get(k);
+
+  let memo = axiom;
+  let next = '';
+
+  return () => {
+    // Allow for an axiom only first step
+    next = memo;
+    memo = next.replace(match, plant);
 
     return next
   }
 };
 
 module.exports = lsys;
-
