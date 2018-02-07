@@ -1,11 +1,5 @@
 const lsys = (rules = new Map(), axiom = '') => {
-  const keys = []
-
-  for (const k of rules.keys()) {
-    keys.push(k)
-  }
-
-  const match = RegExp(keys.join('|'), 'g')
+  const match = RegExp(Array.from(rules.keys()).join('|'), 'g')
   const plant = k => rules.get(k)
 
   let memo = axiom
