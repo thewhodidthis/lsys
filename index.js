@@ -1,24 +1,18 @@
 'use strict';
 
+// L-system calculator
 const lsys = (rules = new Map(), axiom = '') => {
-  const keys = [];
+  const keys = RegExp(Array.from(rules.keys()).join('|'), 'g');
+  const rule = k => rules.get(k);
 
-  for (const k of rules.keys()) {
-    keys.push(k);
-  }
-
-  const match = RegExp(keys.join('|'), 'g');
-  const plant = k => rules.get(k);
-
-  let memo = axiom;
-  let next = '';
+  // Gets replaced on each call
+  let result;
 
   return () => {
     // Allow for an axiom only first step
-    next = memo;
-    memo = next.replace(match, plant);
+    result = result ? result.replace(keys, rule) : axiom;
 
-    return next
+    return result
   }
 };
 
