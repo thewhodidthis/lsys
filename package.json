@@ -14,18 +14,18 @@
   },
   "scripts": {
     "pretest": "eslint test.js",
-    "test": "node test.js",
+    "test": "node test",
     "prestart": "eslint index.mjs",
     "start": "rollup -f cjs index.mjs > index.js",
-    "preexample": "eslint example/index.es",
-    "example": "cd example; rollup -c node:x -f iife index.es | grep -v '^//' | uniq > index.js"
+    "preexample": "eslint example/index.js",
+    "example": "cd example; rollup -c node:x -f iife index.js | grep -v '^//' | uniq > bundle.js"
   },
   "eslintConfig": {
     "extends": "@thewhodidthis"
   },
   "engines": {
-    "node": ">=6.4.0",
-    "npm": ">=3.11.0"
+    "node": ">=6.11.0",
+    "npm": ">=3.10.10"
   },
   "dependencies": {},
   "devDependencies": {
