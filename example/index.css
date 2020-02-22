@@ -39,6 +39,6 @@ img {
 }
 
 canvas {
-  background: white center/contain no-repeat;
+  background: black center/contain no-repeat;
   display: block;
 }
