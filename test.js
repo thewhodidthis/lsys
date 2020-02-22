@@ -3,9 +3,12 @@
 const { equal } = require('tapeless')
 const lsys = require('./')
 
-equal(typeof lsys(), 'function', 'got lambda on init', 'will default')
-equal(typeof lsys()(), 'string', 'got string on call')
-equal(lsys()().length, 0)
+equal
+  .describe('got lambda on init', 'will default')
+  .test(typeof lsys(), 'function')
+  .describe('got string on call')
+  .test(typeof lsys()(), 'string')
+  .test(lsys()().length, 0)
 
 // Data from https://en.wikipedia.org/wiki/L-system
 const systems = [
@@ -55,6 +58,8 @@ systems.forEach(({ rules, axiom, fruit, title }) => {
   const sys = lsys(rules, axiom)
 
   fruit.forEach((str, j) => {
-    equal(sys(), str, null, j ? undefined : `will compute (${title})`)
+    equal
+      .describe(null, j ? undefined : `will compute (${title})`)
+      .test(sys(), str)
   })
 })
