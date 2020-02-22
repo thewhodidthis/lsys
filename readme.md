@@ -12,20 +12,20 @@ import lsys from '@thewhodidthis/lsys'
 
 // Algae
 const data = new Map([
-    ['A', 'AB'],
-    ['B', 'A']
+  ['A', 'AB'],
+  ['B', 'A']
 ])
 
 const seed = ((rules, axiom) => {
-    const step = lsys(rules, axiom)
+  const step = lsys(rules, axiom)
 
-    const tick = function * () {
-        while (1) {
-            yield step()
-        }
+  const tick = function *() {
+    while (1) {
+      yield step()
     }
+  }
 
-    return tick()
+  return tick()
 })(data, 'A')
 
 seed.next()
