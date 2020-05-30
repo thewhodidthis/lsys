@@ -1,12 +1,19 @@
-> No frills L-system calculator
+## about
 
-### Setup
+No frills [L-system](https://en.wikipedia.org/wiki/L-system) calculator.
+
+## setup
+
+Fetch latest from GitHub,
+
 ```sh
-# Fetch latest from github
 npm i thewhodidthis/lsys
 ```
 
-### Usage
+## usage
+
+Initialize with a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of rules, seed with an axiom and call repeatedly to monitor growth. For example,
+
 ```js
 import lsys from '@thewhodidthis/lsys'
 
