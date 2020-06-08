@@ -4,10 +4,10 @@ No frills [L-system](https://en.wikipedia.org/wiki/L-system) calculator.
 
 ## setup
 
-Fetch latest from GitHub:
+Fetch the latest version from GitHub directly:
 
 ```sh
-# Contains ESM and CJS versions
+# Contains ES and CJS modules
 npm i thewhodidthis/lsys
 ```
 
