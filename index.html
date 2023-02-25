@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Helps explore l-systems.">
+    <title>lsys.js</title>
+    <script src="example.js" type="module"></script>
+    <style>
+      html {
+        font: medium/normal sans-serif;
+        height: 100%;
+      }
+      body {
+        display: grid;
+        margin: 0;
+        min-height: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      p {
+        text-align: center;
+      }
+      figcaption {
+        font-size: small;
+      }
+      figure {
+        margin: auto;
+      }
+      canvas,
+      img {
+        vertical-align: middle;
+      }
+      canvas {
+        background: black center/cover no-repeat;
+      }
+    </style>
+    <noscript>
+      <style>
+        canvas {
+          background-image: url(screenshot.png);
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <figure>
+      <canvas height="360" width="540">
+        <img src="screenshot.png" alt="Screenshot: Paul Bourke's Rings" height="360" width="540">
+      </canvas>
+      <figcaption>
+        <p><strong><a href="https://github.com/thewhodidthis/lsys">lsys.js</a></strong> No frills L-system calculator</p>
+      </figcaption>
+    </figure>
+  </body>
+</html>
