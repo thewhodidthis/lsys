@@ -1,6 +1,6 @@
 ## about
 
-No frills [L-system](https://en.wikipedia.org/wiki/L-system) calculator.
+No frills [L-system](https://en.wikipedia.org/wiki/L-system) calculator for growing things.
 
 ## setup
 
@@ -30,28 +30,40 @@ npm install thewhodidthis/lsys
 
 ## usage
 
-Initialize with a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of rules, seed with an axiom and call repeatedly to monitor growth. For example,
+Initialize with a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of rules, seed with an axiom and call repeatedly to monitor successive generations. For example,
 
 ```js
-import lsys from "@thewhodidthis/lsys"
+<script src="https://thewhodidthis.github.io/lsys/lsys.js"></script>
+<script>
+  // Algae
+  const data = new Map([
+    ["A", "AB"],
+    ["B", "A"],
+  ])
 
-// Algae
-const data = new Map([
-  ["A", "AB"],
-  ["B", "A"],
-])
-
-const seed = ((rules, axiom) => {
-  const step = lsys(rules, axiom)
-
-  const tick = function*() {
-    while (1) {
-      yield step()
+  const seed = ((rules, axiom) => {
+    const step = lsys(rules, axiom)
+    const tick = function*() {
+      while (1) {
+        yield step()
+      }
     }
+
+    return tick()
+  })(data, "A")
+
+  const results = []
+
+  // Collect the first five generations.
+  for (const v of seed) {
+    if (results.length > 4) {
+      break
+    }
+
+    results.push(v)
   }
 
-  return tick()
-})(data, "A")
-
-seed.next()
+  console.assert(results.length === 5)
+  console.assert(results.pop() === "ABAABABA")
+</script>
 ```
