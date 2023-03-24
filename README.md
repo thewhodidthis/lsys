@@ -30,12 +30,13 @@ npm install thewhodidthis/lsys
 
 ## usage
 
-Initialize with a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of rules, seed with an axiom and call repeatedly to monitor successive generations. For example,
+Initialize with a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of rules, seed with an axiom and call repeatedly to monitor successive generations. For example:
 
-```js
+```html
 <script src="https://thewhodidthis.github.io/lsys/lsys.js"></script>
 <script>
-  // Algae
+  // The rules map for modelling Algae.
+  // https://en.wikipedia.org/wiki/L-system#Example_1:_Algae
   const data = new Map([
     ["A", "AB"],
     ["B", "A"],
